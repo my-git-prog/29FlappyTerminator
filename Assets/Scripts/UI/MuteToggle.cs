@@ -1,29 +1,36 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MuteToggle : SoundUIElement
+public class MuteToggle : VolumeSlider
 {
     [SerializeField] private Toggle _toggle;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         _toggle.onValueChanged.AddListener(ChangeState);
     }
 
-    private void OnDisable()
+    protected override void OnDisable()
     {
+        base.OnDisable();
         _toggle.onValueChanged.RemoveListener(ChangeState);
     }
 
-    private void ChangeState(bool state)
+    private void ChangeState(bool isChecked)
     {
-        if (state)
-        {
-            MixerGroup.audioMixer.SetFloat(Parameter, GetDbVolume(Slider.value));
-        }
+        if (isChecked)
+            Unmute();
         else
-        {
-            MixerGroup.audioMixer.SetFloat(Parameter, GetDbVolume(MinimumVolumeValue));
-        }
+            Mute();
+    }
+    private void Mute()
+    {
+        SetVolume(MinimumVolumeVal);
+    }
+
+    private void Unmute()
+    {
+        SetVolume(CurrentVolumeVal);
     }
 }

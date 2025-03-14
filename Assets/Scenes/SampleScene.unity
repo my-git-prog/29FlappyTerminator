@@ -576,7 +576,7 @@ MonoBehaviour:
   _prefab: {fileID: 7423681239348311404, guid: 8c840d583344e064780b53816b24fda1, type: 3}
   _defaultCapacity: 10
   _maxSize: 50
-  _killingScore: 200
+  _killingScore: 400
   _killingSound: {fileID: 2125394044}
   _minimumKillingSoundPitch: 0.8
   _maximumKillingSoundPitch: 1.2
@@ -831,6 +831,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2881305620055847831, guid: 2a9147c886ec96e4191fc6c5855788f9, type: 3}
+      propertyPath: _slider
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3218983587143379065, guid: 2a9147c886ec96e4191fc6c5855788f9, type: 3}
       propertyPath: Slider
       value: 
@@ -935,6 +939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3218983587143379065, guid: 2a9147c886ec96e4191fc6c5855788f9, type: 3}
+    - {fileID: 2881305620055847831, guid: 2a9147c886ec96e4191fc6c5855788f9, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3036586052415422155, guid: 2a9147c886ec96e4191fc6c5855788f9, type: 3}
     m_AddedGameObjects: []
@@ -2855,7 +2860,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 838068464}
-  - component: {fileID: 838068463}
+  - component: {fileID: 838068465}
   m_Layer: 0
   m_Name: Spawners
   m_TagString: Untagged
@@ -2863,34 +2868,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &838068463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 838068462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b102794909a7c6b4dba010893d0151a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnerBullet: {fileID: 1332400270}
-  _spawnerAsteroid: {fileID: 2090344195}
-  _spawnerEnemySimple: {fileID: 151583313}
-  _spawnerEnemyHard: {fileID: 1416879553}
-  _isSpawning: 1
-  _maximumSpawnDeltaTime: 5
-  _minimumSpawnDeltaTime: 1.5
-  _maximumLevel: 30
-  _startProbabilityAsteroid: 5
-  _probabilityAsteroidMultiplier: 0
-  _startProbabilityEnemySimple: 1
-  _probabilityEnemySimpleMultiplier: 1
-  _startProbabilityEnemyHard: -10
-  _probabilityEnemyHardMultiplier: 2
-  _minimumEnemyYPosition: -8
-  _maximumEnemyYPosition: 8
 --- !u!4 &838068464
 Transform:
   m_ObjectHideFlags: 0
@@ -2911,6 +2888,34 @@ Transform:
   - {fileID: 2125394043}
   m_Father: {fileID: 519420032}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &838068465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838068462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01a5b147ad9813042aef76444c45cc66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnerBullet: {fileID: 1332400270}
+  _spawnerAsteroid: {fileID: 2090344195}
+  _spawnerEnemySimple: {fileID: 151583313}
+  _spawnerEnemyHard: {fileID: 1416879553}
+  _isSpawning: 1
+  _maximumSpawnDeltaTime: 5
+  _minimumSpawnDeltaTime: 0.2
+  _maximumLevel: 100
+  _startProbabilityAsteroid: 10
+  _probabilityAsteroidMultiplier: 0
+  _startProbabilityEnemySimple: 10
+  _probabilityEnemySimpleMultiplier: 1
+  _startProbabilityEnemyHard: -20
+  _probabilityEnemyHardMultiplier: 2
+  _minimumEnemyYPosition: -8
+  _maximumEnemyYPosition: 8
 --- !u!1 &875168015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2959,7 +2964,7 @@ GameObject:
   - component: {fileID: 877174747}
   - component: {fileID: 877174746}
   - component: {fileID: 877174745}
-  - component: {fileID: 877174744}
+  - component: {fileID: 877174748}
   m_Layer: 5
   m_Name: WindowStart
   m_TagString: Untagged
@@ -2993,20 +2998,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &877174744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 877174742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a416926c8987144e8da4ac9438a2145, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttonStart: {fileID: 399406355}
-  _buttonOptions: {fileID: 980530826}
 --- !u!225 &877174745
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3057,6 +3048,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 877174742}
   m_CullTransparentMesh: 1
+--- !u!114 &877174748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 877174742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6a5d5675f3faa34f92a01265d87033e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _button1: {fileID: 399406355}
+  _button2: {fileID: 980530826}
 --- !u!1 &891130918
 GameObject:
   m_ObjectHideFlags: 0
@@ -3311,6 +3316,7 @@ MonoBehaviour:
   _shootPoint: {fileID: 73697458}
   _bulletSpeed: 10
   _bulletDamage: 4
+  isEnemyGun: 0
 --- !u!1 &956843683
 GameObject:
   m_ObjectHideFlags: 0
@@ -3786,9 +3792,9 @@ MonoBehaviour:
   _userInput: {fileID: 1946156187}
   _scoreCounter: {fileID: 133876574}
   _levelCounter: {fileID: 1053183370}
-  _spawners: {fileID: 838068463}
+  _spawners: {fileID: 838068465}
   _scoreLevelMultiplier: 1000
-  _windowStart: {fileID: 877174744}
+  _windowStart: {fileID: 877174748}
   _windowOptions: {fileID: 2017355843}
   _windowGameOver: {fileID: 1206380243}
   _windowPause: {fileID: 1427035512}
@@ -4363,11 +4369,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1206380238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74abb8ff88d2a674ca090b8ee10d58b9, type: 3}
+  m_Script: {fileID: 11500000, guid: f6a5d5675f3faa34f92a01265d87033e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonRetart: {fileID: 891130920}
-  _buttonAdvertisement: {fileID: 379317365}
+  _button1: {fileID: 891130920}
+  _button2: {fileID: 379317365}
 --- !u!1 &1208667864
 GameObject:
   m_ObjectHideFlags: 0
@@ -4489,6 +4495,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2881305620055847831, guid: 2a9147c886ec96e4191fc6c5855788f9, type: 3}
+      propertyPath: _mixerGroup
+      value: 
+      objectReference: {fileID: -8093657039055986594, guid: 3655a08fdbe5d414c9ab16a70d54c1be, type: 2}
     - target: {fileID: 3218983587143379065, guid: 2a9147c886ec96e4191fc6c5855788f9, type: 3}
       propertyPath: MixerGroup
       value: 
@@ -4798,8 +4808,8 @@ MonoBehaviour:
   _maximumKillingSoundPitch: 1.2
   _killingEffect: {fileID: 1164415885}
   _shootSound: {fileID: 1333390161}
-  _minimumShootSoundPitch: 0.8
-  _maximumShootSoundPitch: 1.2
+  _minimumShootSoundPitch: 0.7
+  _maximumShootSoundPitch: 1.3
 --- !u!1 &1333390160
 GameObject:
   m_ObjectHideFlags: 0
@@ -5072,6 +5082,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2881305620055847831, guid: 2a9147c886ec96e4191fc6c5855788f9, type: 3}
+      propertyPath: _mixerGroup
+      value: 
+      objectReference: {fileID: -297671075275158083, guid: 3655a08fdbe5d414c9ab16a70d54c1be, type: 2}
     - target: {fileID: 3218983587143379065, guid: 2a9147c886ec96e4191fc6c5855788f9, type: 3}
       propertyPath: MixerGroup
       value: 
@@ -5241,7 +5255,7 @@ MonoBehaviour:
   _prefab: {fileID: 5439668275406407969, guid: 9475b31e10e0ae94fa263e0418206346, type: 3}
   _defaultCapacity: 10
   _maxSize: 50
-  _killingScore: 300
+  _killingScore: 700
   _killingSound: {fileID: 2125394044}
   _minimumKillingSoundPitch: 0.8
   _maximumKillingSoundPitch: 1.2
@@ -7054,10 +7068,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2017355837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 941f099dee0bcec4895f53e73226fd79, type: 3}
+  m_Script: {fileID: 11500000, guid: 23bca8d03f5915f49a5aba165a061551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonOk: {fileID: 1273962002}
+  _button1: {fileID: 1273962002}
 --- !u!1 &2090344193
 GameObject:
   m_ObjectHideFlags: 0
@@ -7105,7 +7119,7 @@ MonoBehaviour:
   _prefab: {fileID: 4576620534238023173, guid: a1a600447b1445f45a65d475a4517d55, type: 3}
   _defaultCapacity: 10
   _maxSize: 50
-  _killingScore: 100
+  _killingScore: 250
   _killingSound: {fileID: 2125394044}
   _minimumKillingSoundPitch: 0.8
   _maximumKillingSoundPitch: 1.2
@@ -7358,6 +7372,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2881305620055847831, guid: 2a9147c886ec96e4191fc6c5855788f9, type: 3}
+      propertyPath: _mixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 3655a08fdbe5d414c9ab16a70d54c1be, type: 2}
     - target: {fileID: 3218983587143379065, guid: 2a9147c886ec96e4191fc6c5855788f9, type: 3}
       propertyPath: MixerGroup
       value: 

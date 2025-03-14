@@ -14,15 +14,14 @@ public class Spawner<T> : MonoBehaviour where T : Spawnable
     [SerializeField] private float _maximumKillingSoundPitch = 1.2f;
     [SerializeField] private Effect _killingEffect;
 
-    protected ObjectPool<T> Pool;
+    private ObjectPool<T> _pool;
+    private List<Spawnable> _activeObjects = new List<Spawnable>();
 
-    private List<Spawnable> ActiveObjects = new List<Spawnable>();
-
-    public virtual event Action<int> ObjectKilled;
+    public event Action<int> ObjectKilled;
 
     private void Awake()
     {
-        Pool = new ObjectPool<T>(
+        _pool = new ObjectPool<T>(
             createFunc: () => CreateItem(),
             actionOnGet: (obj) => ActivateItem(obj),
             actionOnRelease: (obj) => DeactivateItem(obj),
@@ -42,7 +41,7 @@ public class Spawner<T> : MonoBehaviour where T : Spawnable
     {
         obj.Destroyed -= ReleaseItem;
         obj.Killed -= KillItem;
-        Pool.Release(obj as T);
+        _pool.Release(obj as T);
     }
 
     private void KillItem(Spawnable obj)
@@ -59,13 +58,13 @@ public class Spawner<T> : MonoBehaviour where T : Spawnable
         obj.Destroyed += ReleaseItem;
         obj.Killed += KillItem;
         obj.gameObject.SetActive(true);
-        ActiveObjects.Add(obj);
+        _activeObjects.Add(obj);
     }
 
     private void DeactivateItem(T obj)
     {
         obj.gameObject.SetActive(false);
-        ActiveObjects.Remove(obj);
+        _activeObjects.Remove(obj);
     }
 
     private void DestroyItem(T obj)
@@ -73,11 +72,16 @@ public class Spawner<T> : MonoBehaviour where T : Spawnable
         Destroy(obj.gameObject);
     }
 
+    protected T GetItem()
+    {
+        return _pool.Get();
+    }
+
     public void Reset()
     {
         List<Spawnable> objectsToRelease = new List<Spawnable>();
 
-        foreach (var obj in ActiveObjects)
+        foreach (var obj in _activeObjects)
         {
             objectsToRelease.Add(obj);
         }

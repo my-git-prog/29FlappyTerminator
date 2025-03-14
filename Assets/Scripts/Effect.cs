@@ -1,10 +1,11 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class Effect : MonoBehaviour
 {
-    const string ParameterStart = "Start";
+    private readonly int ParameterStart = Animator.StringToHash(nameof(Start));
 
     [SerializeField] private float _lifeTime = 1.0f;
 

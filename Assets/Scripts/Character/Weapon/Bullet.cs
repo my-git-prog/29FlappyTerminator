@@ -9,6 +9,7 @@ public class Bullet : Spawnable
     private float _speed;
     private int _damage;
     private WaitForSeconds _waitLifeTime;
+    private bool _isEnemyBullet;
 
     public override event Action<Spawnable> Destroyed;
     public override event Action<Spawnable> Killed;
@@ -23,12 +24,13 @@ public class Bullet : Spawnable
         transform.Translate(transform.right * _speed * Time.deltaTime, Space.World);
     }
 
-    public void Initialize (Transform shootPoint, float speed, int damage)
+    public void Initialize (Transform shootPoint, float speed, int damage, bool IsEnemyBullet)
     {
         transform.position = shootPoint.position;
         transform.rotation = shootPoint.rotation;
         _speed = speed;
         _damage = damage;
+        _isEnemyBullet = IsEnemyBullet;
         StartCoroutine(DelaydDestroy());
     }
 
@@ -43,6 +45,10 @@ public class Bullet : Spawnable
     {
         if (collision.gameObject.TryGetComponent(out IDamagable damagable))
         {
+            if (_isEnemyBullet)
+                if (damagable is Enemy)
+                    return;
+
             damagable.TakeDamage(_damage);
             Killed?.Invoke(this);
         }

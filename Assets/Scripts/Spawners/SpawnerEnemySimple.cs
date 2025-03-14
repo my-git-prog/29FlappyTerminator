@@ -7,7 +7,6 @@ public class SpawnerEnemySimple : Spawner<EnemySimple>
 
     public void Spawn(Vector3 position)
     {
-        var enemy = Pool.Get();
-        enemy.Initialize(position, _shootDeltaTime, _bulletSpawner);
+        GetItem().Initialize(position, _shootDeltaTime, _bulletSpawner);
     }
 }

@@ -121,7 +121,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3117658736309161940}
   - component: {fileID: 5674644231093586921}
-  - component: {fileID: 7242191485852502501}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -202,20 +201,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7242191485852502501
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3036586052415422155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b328116122a0bee488ede9465f8a79ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MixerGroup: {fileID: 0}
-  Slider: {fileID: 5674644231093586921}
 --- !u!1 &3339345971981129878
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +211,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7475671275613867637}
   - component: {fileID: 5413771372641316923}
-  - component: {fileID: 3218983587143379065}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -302,21 +286,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
---- !u!114 &3218983587143379065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3339345971981129878}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e09c68e2fb0b8a4a8c4747ac4e14e50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MixerGroup: {fileID: 0}
-  Slider: {fileID: 5674644231093586921}
-  _toggle: {fileID: 5413771372641316923}
 --- !u!1 &3998401560330642476
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,6 +446,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8707504579323307841}
+  - component: {fileID: 2881305620055847831}
   m_Layer: 5
   m_Name: VolumeOptionUI
   m_TagString: Untagged
@@ -506,6 +476,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2881305620055847831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516679559560175452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e09c68e2fb0b8a4a8c4747ac4e14e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixerGroup: {fileID: 0}
+  _slider: {fileID: 5674644231093586921}
+  _toggle: {fileID: 5413771372641316923}
 --- !u!1 &6913891451623346401
 GameObject:
   m_ObjectHideFlags: 0

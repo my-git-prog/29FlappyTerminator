@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class Spawners : MonoBehaviour
+public class SpawnersCommander : MonoBehaviour
 {
-    const int StartLevel = 1;
+    private const int StartLevel = 1;
 
     [SerializeField] private SpawnerBullet _spawnerBullet;
     [SerializeField] private SpawnerAsteroid _spawnerAsteroid;
@@ -41,23 +41,24 @@ public class Spawners : MonoBehaviour
         CalcSpawnParameters(StartLevel);
         Reset();
     }
+
     private void OnEnable()
     {
-        _spawnerAsteroid.ObjectKilled += AddScore;
-        _spawnerEnemySimple.ObjectKilled += AddScore;
-        _spawnerEnemyHard.ObjectKilled += AddScore;
+        _spawnerAsteroid.ObjectKilled += OnObjectKilled;
+        _spawnerEnemySimple.ObjectKilled += OnObjectKilled;
+        _spawnerEnemyHard.ObjectKilled += OnObjectKilled;
     }
 
     private void OnDisable()
     {
-        _spawnerAsteroid.ObjectKilled -= AddScore;
-        _spawnerEnemySimple.ObjectKilled -= AddScore;
-        _spawnerEnemyHard.ObjectKilled -= AddScore;
+        _spawnerAsteroid.ObjectKilled -= OnObjectKilled;
+        _spawnerEnemySimple.ObjectKilled -= OnObjectKilled;
+        _spawnerEnemyHard.ObjectKilled -= OnObjectKilled;
     }
 
-    private void AddScore(int score)
+    private void OnObjectKilled(int killingScore)
     {
-        ObjectKilled?.Invoke(score);
+        ObjectKilled?.Invoke(killingScore);
     }
 
     public void Reset()

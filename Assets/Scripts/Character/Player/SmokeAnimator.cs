@@ -1,9 +1,10 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class SmokeAnimator : MonoBehaviour
 {
-    const string ParameterGas = "Gas";
+    private readonly int ParameterGas = Animator.StringToHash(nameof(Gas));
 
     [SerializeField] private Animator _animator;
 

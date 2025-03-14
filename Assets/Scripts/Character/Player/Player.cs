@@ -14,13 +14,9 @@ public class Player : Character
 
     public event Action GameOver;
 
-    private void Awake()
-    {
-        _autoShoootingToggle.onValueChanged.AddListener(OnAutoShootingToggleChanging);
-    }
-
     private void OnEnable()
     {
+        _autoShoootingToggle.onValueChanged.AddListener(OnAutoShootingToggleChanging);
         _userInput.GasButtonPressed += _mover.Gas;
         _userInput.AttackButtonPressed += _gun.Shoot;
         Health.Died += OverGame;
@@ -29,6 +25,7 @@ public class Player : Character
 
     private void OnDisable()
     {
+        _autoShoootingToggle.onValueChanged.RemoveListener(OnAutoShootingToggleChanging);
         _userInput.GasButtonPressed -= _mover.Gas;
         _userInput.AttackButtonPressed -= _gun.Shoot;
         Health.Died -= OverGame;

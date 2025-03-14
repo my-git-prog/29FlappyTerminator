@@ -6,7 +6,7 @@ public class Enemy : Character
     public override event Action<Spawnable> Destroyed;
     public override event Action<Spawnable> Killed;
 
-    public virtual void Initialize(Vector3 position)
+    public void Initialize(Vector3 position)
     {
         transform.position = position;
         Health.Reset();

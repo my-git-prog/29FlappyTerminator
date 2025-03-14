@@ -12,13 +12,6 @@ public class Health : MonoBehaviour
 
     public int Value => _value;
     public int MaximumValue => _maximumValue;
-    public int MinimumValue => _minimumValue;
-
-    public void Initialize(int maximumValue)
-    {
-        _maximumValue = maximumValue;
-        Reset();
-    }
 
     public void TakeDamage(int damage)
     {

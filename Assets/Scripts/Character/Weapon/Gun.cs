@@ -7,12 +7,13 @@ public class Gun : MonoBehaviour
     [SerializeField] private Transform _shootPoint;
     [SerializeField] private float _bulletSpeed = 10f;
     [SerializeField] private int _bulletDamage = 1;
+    [SerializeField] private bool isEnemyGun = true;
 
     private bool _isShooting = true;
 
     public void Shoot()
     {
-        _spawnerBullet.Shoot(_shootPoint, _bulletSpeed, _bulletDamage);
+        _spawnerBullet.Shoot(_shootPoint, _bulletSpeed, _bulletDamage, isEnemyGun);
     }
 
     public void SetBulletSpawner(SpawnerBullet bulletSpawner)

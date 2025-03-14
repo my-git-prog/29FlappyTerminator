@@ -7,8 +7,7 @@ public class SpawnerAsteroid : Spawner<Asteroid>
 
     public void Spawn(Vector3 position)
     {
-        var enemy = Pool.Get();
-        enemy.Initialize(position, GetRandomRotationSpeed());
+        GetItem().Initialize(position, GetRandomRotationSpeed());
     }
 
     private float GetRandomRotationSpeed()
