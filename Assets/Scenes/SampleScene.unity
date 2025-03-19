@@ -3060,8 +3060,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a5d5675f3faa34f92a01265d87033e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button1: {fileID: 399406355}
-  _button2: {fileID: 980530826}
+  _buttonStart: {fileID: 399406355}
+  _buttonOptions: {fileID: 980530826}
 --- !u!1 &891130918
 GameObject:
   m_ObjectHideFlags: 0
@@ -4369,11 +4369,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1206380238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6a5d5675f3faa34f92a01265d87033e, type: 3}
+  m_Script: {fileID: 11500000, guid: 708bd60e2b3fefa478e4f3837509c825, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button1: {fileID: 891130920}
-  _button2: {fileID: 379317365}
+  _buttonRestart: {fileID: 891130920}
+  _buttonAdvertisement: {fileID: 379317365}
 --- !u!1 &1208667864
 GameObject:
   m_ObjectHideFlags: 0
@@ -7068,10 +7068,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2017355837}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23bca8d03f5915f49a5aba165a061551, type: 3}
+  m_Script: {fileID: 11500000, guid: 197f4c918c31cb24baf2e98514dd533d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button1: {fileID: 1273962002}
+  _buttonOk: {fileID: 1273962002}
 --- !u!1 &2090344193
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,9 +9,9 @@ public class Game : MonoBehaviour
     [SerializeField] private Counter _levelCounter;
     [SerializeField] private SpawnersCommander _spawners;
     [SerializeField] private int _scoreLevelMultiplier = 100;
-    [SerializeField] private Window2Buttons _windowStart;
-    [SerializeField] private Window1Button _windowOptions;
-    [SerializeField] private Window2Buttons _windowGameOver;
+    [SerializeField] private WindowStart _windowStart;
+    [SerializeField] private WindowOptions _windowOptions;
+    [SerializeField] private WindowGameOver _windowGameOver;
     [SerializeField] private Window _windowPause;
     [SerializeField] private WindowAdvertisement _windowAdvertisement;
     [SerializeField] private Toggle _masterVolumeMuteTogle;
@@ -32,11 +32,11 @@ public class Game : MonoBehaviour
         _scoreCounter.Changed += CalcLevel;
         _levelCounter.Changed += ChangeLevel;
         _userInput.PauseButtonPressed += OnPauseButtonClick;
-        _windowStart.Button1Clicked += OnStartButtonClick;
-        _windowStart.Button2Clicked += OnOptionsButtonClick;
-        _windowOptions.Button1Clicked += OnOptionsOkButtonClick;
-        _windowGameOver.Button1Clicked += OnRestartButtonClick;
-        _windowGameOver.Button2Clicked += OnAdvertisementButtonClick;
+        _windowStart.ButtonStartClicked += OnStartButtonClick;
+        _windowStart.ButtonOptionsClicked += OnOptionsButtonClick;
+        _windowOptions.ButtonOkClicked += OnOptionsOkButtonClick;
+        _windowGameOver.ButtonRestartClicked += OnRestartButtonClick;
+        _windowGameOver.ButtonAdvertisementClicked += OnAdvertisementButtonClick;
         _windowAdvertisement.AdvertisementFinished += OnAdvertisementFinish;
     }
 
@@ -47,11 +47,11 @@ public class Game : MonoBehaviour
         _scoreCounter.Changed -= CalcLevel;
         _levelCounter.Changed -= ChangeLevel;
         _userInput.PauseButtonPressed -= OnPauseButtonClick;
-        _windowStart.Button1Clicked -= OnStartButtonClick;
-        _windowStart.Button2Clicked -= OnOptionsButtonClick;
-        _windowOptions.Button1Clicked -= OnOptionsOkButtonClick;
-        _windowGameOver.Button1Clicked -= OnRestartButtonClick;
-        _windowGameOver.Button2Clicked -= OnAdvertisementButtonClick;
+        _windowStart.ButtonStartClicked -= OnStartButtonClick;
+        _windowStart.ButtonOptionsClicked -= OnOptionsButtonClick;
+        _windowOptions.ButtonOkClicked -= OnOptionsOkButtonClick;
+        _windowGameOver.ButtonRestartClicked -= OnRestartButtonClick;
+        _windowGameOver.ButtonAdvertisementClicked -= OnAdvertisementButtonClick;
         _windowAdvertisement.AdvertisementFinished -= OnAdvertisementFinish;
     }
 
